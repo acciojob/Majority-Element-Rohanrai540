@@ -1,12 +1,18 @@
 //your code here
-function majorityElement(arr) {
-    let map = {};
+function majorElement(arr) {
+    let candidate = null;
+    let count = 0;
 
     for (let num of arr) {
-        map[num] = (map[num] || 0) + 1;
-
-        if (map[num] > Math.floor(arr.length / 2)) {
-            return num;
+        if (count === 0) {
+            candidate = num;
         }
+
+        if (num === candidate) count++;
+        else count--;
     }
+
+    return candidate;
 }
+
+module.exports = majorElement;
